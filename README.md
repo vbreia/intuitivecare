@@ -32,7 +32,7 @@ Cada etapa foi implementada com foco em **boa organização, eficiência e boas 
 ## 📂 **Estrutura do Projeto**  
 
 ```bash
-📦 intuitivecare-teste
+📦 intuitivecare
 │── 📂 src                     # Código-fonte do projeto
 │   ├── 📂 testes-1-e-2        # Contendo o teste de web scraping e transformação de dados
 │   │   ├── 📜 app.py          # Aplicativo python que roda os dois testes
@@ -50,4 +50,4 @@ Cada etapa foi implementada com foco em **boa organização, eficiência e boas 
 - **Descrição:**  
   - O teste de Web Scraping consiste em coletar arquivos PDF diretamente do site da ANS.  
   - O teste de Transformação de Dados consiste em extrair tabelas do PDF e convertê-las para CSV.
-[Informações completas](testes-1-e-2/README.md)
+  - [Informações completas](testes-1-e-2/README.md)
