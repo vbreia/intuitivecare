@@ -1,0 +1,7 @@
+requests
+beautifulsoup4
+pandas
+PyPDF2
+tabula-py
+zipfile36
+JPype1 # Para rodar o tabula-py
