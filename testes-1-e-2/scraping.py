@@ -44,7 +44,7 @@ class Scraper:
             self.download_pdf(anexo_ii_url, os.path.join(self.download_dir, "Anexo_II.pdf"))
 
 if __name__ == "__main__":
-    DOWNLOAD_DIR = os.path.expanduser("./data/ans")
+    DOWNLOAD_DIR = os.path.expanduser("./data/pdf")
     URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos"
 
     scraper = Scraper(DOWNLOAD_DIR)

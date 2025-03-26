@@ -59,9 +59,9 @@ class PDFTableExtractor:
         print(f'Arquivo CSV comprimido em {end_time - start_time:.2f} segundos')
 
 if __name__ == "__main__":
-    pdf_path = "./data/ans/Anexo_I.pdf"
-    output_csv = "./data/ans/Rol_de_Procedimentos.csv"
-    output_zip = "./data/ans/Teste_victor-breia.zip"
+    pdf_path = "./data/pdf/Anexo_I.pdf"
+    output_csv = "./data/pdf/Rol_de_Procedimentos.csv"
+    output_zip = "./data/pdf/Teste_victor-breia.zip"
 
     extractor = PDFTableExtractor(pdf_path)
     extractor.extract_tables(start_page=3)

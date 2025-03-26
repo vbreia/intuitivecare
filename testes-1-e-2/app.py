@@ -13,3 +13,5 @@ def run_script(script_path):
 
 run_script("testes-1-e-2/scraping.py")
 run_script("testes-1-e-2/transform.py")
+
+
