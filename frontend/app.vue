@@ -1,16 +1,25 @@
-<!-- filepath: /home/breia/lab/intuitivecare/frontend/src/App.vue -->
 <template>
   <div id="app">
-    <h1>Bem-vindo ao Frontend!</h1>
+    <h1>Busca de Operadoras</h1>
+    <SearchOperadoras />
   </div>
 </template>
 
 <script>
+import SearchOperadoras from './components/SearchOperadoras.vue';
+
 export default {
-  name: 'App',
+  components: {
+    SearchOperadoras,
+  },
 };
 </script>
 
 <style>
-/* Adicione seus estilos aqui */
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
 </style>

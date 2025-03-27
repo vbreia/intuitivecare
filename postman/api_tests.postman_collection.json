@@ -1,0 +1,114 @@
+{
+	"info": {
+		"_postman_id": "67527338-b565-4a60-8e87-0706e80313c8",
+		"name": "Teste API - IntuitiveCare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21639336"
+	},
+	"item": [
+		{
+			"name": "Operadores de Assistência",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/busca-operadora/?q=assistência",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"busca-operadora",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "assistência"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operadores Medicina de Grupo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/modalidade/?q=Medicina de Grupo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"modalidade",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Medicina de Grupo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operadores Odontologia de Grupo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/modalidade/?q=Odontologia de Grupo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"modalidade",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Odontologia de Grupo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Operadores Localizados No Centro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/bairro/?q=Centro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"bairro",
+						""
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Centro"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

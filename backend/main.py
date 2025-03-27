@@ -1,28 +1,41 @@
 from fastapi import FastAPI, Query
-import psycopg2
-import os
+import pandas as pd
 
 app = FastAPI()
 
-# Configuração do banco de dados
-DATABASE_URL = os.getenv("DATABASE_URL", "dbname=postgres user=postgres password=postgres host=db port=5432")
+CSV_PATH = "/data/csvs/Relatorio_cadop.csv"
+df_operadoras = pd.read_csv(CSV_PATH, delimiter=";", encoding="utf-8")
 
-# Função para conectar ao banco
-def get_db_connection():
-    return psycopg2.connect(DATABASE_URL)
+@app.get("/")
+def home():
+    """ Rota inicial para testar a API """
+    return {"mensagem": "API funcionando!"}
 
-@app.get("/operadoras/")
-def search_operadoras(query: str = Query(..., min_length=3)):
-    """ Busca textual na lista de operadoras """
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute("""
-        SELECT * FROM operadoras
-        WHERE nome_fantasia ILIKE %s OR razao_social ILIKE %s
-        LIMIT 10;
-    """, (f"%{query}%", f"%{query}%"))
-    result = cur.fetchall()
-    cur.close()
-    conn.close()
+@app.get("/busca-operadora/")
+def busca_operadora(q: str = Query(..., min_length=2)):
+    """Busca textual por razão social da operadora"""
+    resultados = df_operadoras[df_operadoras['Razao_Social'].str.contains(q, case=False, na=False)]
     
-    return {"operadoras": result}
+    # Substituir valores NaN e infinitos antes de converter para JSON
+    resultados = resultados.fillna("").replace([float("inf"), float("-inf")], "")
+    
+    return resultados.head(10).to_dict(orient="records")
+
+@app.get("/modalidade/")
+def busca_operadora(q: str = Query(..., min_length=2)):
+    """Busca textual por modalidade da operadora"""
+    resultados = df_operadoras[df_operadoras['Modalidade'].str.contains(q, case=False, na=False)]
+    
+    # Substituir valores NaN e infinitos antes de converter para JSON
+    resultados = resultados.fillna("").replace([float("inf"), float("-inf")], "")
+    
+    return resultados.head(10).to_dict(orient="records")
+
+@app.get("/bairro/")
+def busca_bairro(q: str = Query(..., min_length=2)):
+    """Busca textual por bairro da operadora"""
+    resultados = df_operadoras[df_operadoras['Bairro'].str.contains(q, case=False, na=False)]
+    # Substituir valores NaN e infinitos antes de converter para JSON
+    resultados = resultados.fillna("").replace([float("inf"), float("-inf")], "")
+    
+    return resultados.head(10).to_dict(orient="records")
