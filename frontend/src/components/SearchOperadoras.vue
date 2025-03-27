@@ -2,32 +2,36 @@
 import api from "../services/api";
 
 export default {
-  data() {
-    return {
-      query: "", // Termo de busca digitado pelo usuário
-      operadoras: [], // Lista de operadoras retornadas pela API
-      loading: false, // Estado de carregamento
-      error: null, // Mensagem de erro
-    };
-  },
+data() {
+  return {
+    query: "", // Inicializa como uma string vazia
+    operadoras: [], // Lista de operadoras retornadas pela API
+    loading: false, // Estado de carregamento
+    error: null, // Mensagem de erro
+  };
+},
   methods: {
     async buscarOperadoras() {
-      if (!this.query) return;
+  console.log("Valor de this.query antes da verificação:", this.query); // Log para depuração
+  if (!this.query) return; // Verifica se o campo de busca está vazio
 
-      this.loading = true;
-      this.error = null;
+  this.loading = true;
+  this.error = null;
 
-      try {
-        const response = await api.get("/busca-operadora/", {
-          params: { q: this.query },
-        });
-        this.operadoras = response.data;
-      } catch (err) {
-        this.error = "Erro ao buscar operadoras.";
-      } finally {
-        this.loading = false;
-      }
-    },
+  try {
+    console.log("Enviando consulta:", this.query); // Log para depuração
+    const response = await api.get("/busca-operadora/", {
+      params: { q: this.query },
+    });
+    console.log("Resposta da API:", response.data); // Log para depuração
+    this.operadoras = response.data;
+  } catch (err) {
+    console.error("Erro ao buscar operadoras:", err); // Log do erro
+    this.error = "Erro ao buscar operadoras.";
+  } finally {
+    this.loading = false;
+  }
+},
   },
 };
 </script>
@@ -36,6 +40,7 @@ export default {
   <div class="container">
     <h2>Buscar Operadoras</h2>
     
+    <!-- Campo de entrada vinculado à propriedade `query` -->
     <input 
       v-model="query" 
       @keyup.enter="buscarOperadoras" 

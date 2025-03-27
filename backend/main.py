@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Query
 import pandas as pd
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
@@ -39,3 +40,11 @@ def busca_bairro(q: str = Query(..., min_length=2)):
     resultados = resultados.fillna("").replace([float("inf"), float("-inf")], "")
     
     return resultados.head(10).to_dict(orient="records")
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:8080"],  # Permitir apenas o frontend
+    allow_credentials=True,
+    allow_methods=["*"],  # Permitir todos os métodos (GET, POST, etc.)
+    allow_headers=["*"],  # Permitir todos os cabeçalhos
+)
