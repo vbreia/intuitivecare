@@ -5,16 +5,49 @@ Este projeto foi desenvolvido para demonstrar habilidades em **coleta, transform
 
 ---
 
-## 📌 **Descrição do Projeto**  
+# **IntuitiveCare - Testes 1️⃣, 2️⃣, 3️⃣ e 4️⃣**
 
-Este repositório contém soluções para os desafios propostos, divididos em quatro etapas:  
+Este repositório contém a implementação de quatro testes que abrangem diferentes áreas de desenvolvimento, incluindo web scraping, transformação de dados, manipulação de banco de dados e desenvolvimento de uma API com integração frontend.
 
-1️⃣ **Web Scraping**: Coleta de arquivos PDF diretamente do site da ANS.  
-2️⃣ **Transformação de Dados**: Extração de tabelas do PDF e conversão para CSV.  
-3️⃣ **Banco de Dados**: Criação e manipulação de tabelas SQL para análise de dados.  
-4️⃣ **API e Interface Web**: Desenvolvimento de uma API em Python e uma interface em Vue.js.  
+---
 
-Cada etapa foi implementada com foco em **boa organização, eficiência e boas práticas de desenvolvimento**.  
+## 🎥 **Vídeo Explicativo**
+
+Clique na imagem abaixo para assistir ao vídeo explicativo sobre o projeto:
+
+[![Vídeo Explicativo](doc/video.png)](https://youtu.be/peI5eTaFIxg?si=7HOYM6SCSCKtosRB)
+
+---
+
+## **1️⃣ Web Scraping**
+
+O objetivo do Teste 1 é realizar o download de um arquivo PDF a partir de uma página da web. O script `scraping.py` utiliza as bibliotecas `requests` e `BeautifulSoup` para acessar a página, localizar o link do PDF e realizar o download do arquivo para o diretório `../data/pdf`.
+
+- [Informações completas](testes-1-e-2/README.md)
+
+---
+
+## **2️⃣ Transformação de Dados**
+
+O Teste 2 consiste em processar o arquivo PDF baixado no Teste 1, extrair tabelas e transformar os dados em um formato estruturado. O script `transform.py` utiliza as bibliotecas `PyPDF2`, `tabula` e `pandas` para extrair as tabelas, renomear colunas, concatenar os dados em um único DataFrame e exportá-los como um arquivo CSV compactado.
+
+- [Informações completas](testes-1-e-2/README.md)
+
+---
+
+## **3️⃣ Banco de Dados**
+
+O Teste 3 tem como objetivo processar e analisar dados relacionados a operadoras de saúde. Ele utiliza scripts Python para descompactar arquivos ZIP, processar arquivos CSV e popular tabelas em um banco de dados PostgreSQL. Além disso, consultas SQL são realizadas para responder a perguntas específicas sobre os dados.
+
+- [Informações completas](teste-3/README.md)
+
+---
+
+## **4️⃣ API e Frontend**
+
+O Teste 4 envolve o desenvolvimento de uma API em Python utilizando **FastAPI** e uma interface web em **Vue.js**. A API realiza buscas textuais em uma lista de operadoras de saúde, enquanto o frontend exibe os resultados de forma interativa. O projeto utiliza Docker para facilitar a execução e integração entre backend e frontend.
+
+- [Informações completas](backend/README.md)
 
 ---
 
@@ -64,23 +97,14 @@ Cada etapa foi implementada com foco em **boa organização, eficiência e boas 
 
 ---
 
-### **1️⃣ e 2️⃣ Web Scraping e Transformação de Dados**
+## 🛠️ **Execução Geral**
 
----
+Para rodar todas as dependências de todos os testes, basta executar o seguinte comando na raiz do projeto:
 
-- **Descrição:**  
-  - O teste de Web Scraping consiste em coletar arquivos PDF diretamente do site da ANS.  
-  - O teste de Transformação de Dados consiste em extrair tabelas do PDF e convertê-las para CSV.
-  - [Informações completas](testes-1-e-2/README.md)
+```bash
+docker-compose up --build
+```
 
----
-
-### **3️⃣Banco de Dados**
-
----
-
-- **Descrição:**  
-  - O teste de Banco de Dados consiste em criar e manipular tabelas SQL para análise de dados.
-  - [Informações completas](teste-3/README.md)
+Cada teste possui um README específico com instruções detalhadas para execução. Certifique-se de seguir as orientações de cada pasta (`testes-1-e-2`, `teste-3`, `backend`) para rodar os scripts e obter os resultados esperados.
 
 ---
