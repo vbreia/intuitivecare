@@ -20,7 +20,7 @@ class PDFTableExtractor:
         start_time = time.time()
         all_tables = []
         for page in range(start_page, self.num_pages + 1):
-            page_tables = tabula.read_pdf(self.pdf_path, pages=page, multiple_tables=True)
+            page_tables = tabula.read_pdf(self.pdf_path, pages=page, multiple_tables=True, encoding='utf-8')
             all_tables.extend(page_tables)
         self.tables = all_tables
         end_time = time.time()
@@ -46,7 +46,7 @@ class PDFTableExtractor:
 
     def save_to_csv(self, df, output_csv):
         start_time = time.time()
-        df.to_csv(output_csv, index=False)
+        df.to_csv(output_csv, index=False, encoding='utf-8-sig')
         end_time = time.time()
         print(f'Arquivo CSV salvo com sucesso em {end_time - start_time:.2f} segundos')
 
@@ -59,9 +59,9 @@ class PDFTableExtractor:
         print(f'Arquivo CSV comprimido em {end_time - start_time:.2f} segundos')
 
 if __name__ == "__main__":
-    pdf_path = "./data/pdf/Anexo_I.pdf"
-    output_csv = "./data/pdf/Rol_de_Procedimentos.csv"
-    output_zip = "./data/pdf/Teste_victor-breia.zip"
+    pdf_path = "../data/pdf/Anexo_I.pdf"
+    output_csv = "../data/pdf/Rol_de_Procedimentos.csv"
+    output_zip = "../data/pdf/Teste_victor-breia.zip"
 
     extractor = PDFTableExtractor(pdf_path)
     extractor.extract_tables(start_page=3)

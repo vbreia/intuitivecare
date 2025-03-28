@@ -42,7 +42,7 @@ class Scraper:
                 
 
 if __name__ == "__main__":
-    DOWNLOAD_DIR = os.path.expanduser("./data/pdf")
+    DOWNLOAD_DIR = os.path.expanduser("../data/pdf")
     URL = "https://www.gov.br/ans/pt-br/acesso-a-informacao/participacao-da-sociedade/atualizacao-do-rol-de-procedimentos"
 
     scraper = Scraper(DOWNLOAD_DIR)
