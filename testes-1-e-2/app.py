@@ -9,9 +9,10 @@ def run_script(script_path):
         print(f"\t\n{'=' * 70}\n Sucesso ao executar {script_path} em {end_time - start_time:.2f} segundos\n{'=' * 70}\n")
     else:
         print(f"\t\n{'=' * 60}\n Falha ao executar {script_path}\n{'=' * 60}\n")
+        
 
 
-run_script("testes-1-e-2/scraping.py")
-run_script("testes-1-e-2/transform.py")
+run_script("scraping.py")
+run_script("transform.py")
 
 

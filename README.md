@@ -39,14 +39,27 @@ Cada etapa foi implementada com foco em **boa organização, eficiência e boas 
 │   ├── 📜 transform.py        # Script Python que transforma os dados
 │── 📂 teste-3                 # Contendo o teste de SQL
 │   ├── 📜 populate_tables.py  # Script Python que popula as tabelas do banco postgres
-│   ├── 📜 unziper.py          # Scripy Python que descompacta os arquivos CSV do teste 3
+│   ├── 📜 unziper.py          # Script Python que descompacta os arquivos CSV do teste 3
 │   └── 📂 sql                 # Contendo as queries utilizadas para solucionar o teste 3
+│       ├── 📜 1.setup.sql     # Script SQL para criar o banco de dados
+│       ├── 📜 2.scheema.sql   # Script SQL para criar as tabelas
+│── 📂 backend                 # Contendo a API FastAPI
+│   ├── 📜 main.py             # Código principal da API
+│   ├── 📜 dockerfile          # Dockerfile para o backend
+│── 📂 frontend                # Contendo a interface web em Vue.js
+│   ├── 📂 src                 # Código-fonte do frontend
+│   │   ├── 📂 components      # Componentes Vue.js
+│   │   │   ├── 📜 SearchOperadoras.vue  # Componente para buscar operadoras
+│   │   ├── 📜 App.vue         # Componente principal do Vue.js
+│   │   ├── 📜 main.js         # Arquivo de entrada do Vue.js
+│   ├── 📜 dockerfile          # Dockerfile para o frontend
 │── 📜 README.md               # Documentação do projeto
 │── 📜 .gitignore              # Arquivos ignorados pelo Git
-│── 📜 docker-compose.yml      # Docker rodando PostgreSQL
-│── 📜 requirements.txt        # Bibliotecas necessárias para rodar o projeto
+│── 📜 docker-compose.yml      # Docker Compose para rodar o projeto
+│── 📜 requirements.txt        # Bibliotecas necessárias para rodar o backend
 │── 📂 sql                     # DDL que inicia junto ao docker quando sobe o banco
-└── 📂 data                    # Outputs do projeto
+│── 📂 data                    # Outputs do projeto
+│   ├── 📜 Relatorio_cadop.csv # Arquivo CSV com os dados processados
 ```
 
 ---

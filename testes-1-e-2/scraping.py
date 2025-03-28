@@ -34,14 +34,12 @@ class Scraper:
     def scrape(self, url):
         content = self.get_page_content(url)
         soup = BeautifulSoup(content, 'html.parser')
-
-        anexo_i_url = self.get_anexo_url(soup, "Anexo I.")
-        anexo_ii_url = self.get_anexo_url(soup, "Anexo II.")
-
-        if anexo_i_url:
-            self.download_pdf(anexo_i_url, os.path.join(self.download_dir, "Anexo_I.pdf"))
-        if anexo_ii_url:
-            self.download_pdf(anexo_ii_url, os.path.join(self.download_dir, "Anexo_II.pdf"))
+        anexos = ['Anexo I.', 'Anexo II.']
+        for anexo in anexos:
+            anexo_url = self.get_anexo_url(soup, anexo)
+            if anexo_url:
+                self.download_pdf(anexo_url, os.path.join(self.download_dir, f"{anexo.replace(' ','_')}pdf"))
+                
 
 if __name__ == "__main__":
     DOWNLOAD_DIR = os.path.expanduser("./data/pdf")
