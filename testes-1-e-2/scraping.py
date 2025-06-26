@@ -1,6 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+import urllib3
+
+# Suprimir warning de SSL
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 class Scraper:
     def __init__(self, download_dir):
@@ -8,9 +12,16 @@ class Scraper:
         os.makedirs(download_dir, exist_ok=True)
 
     def get_page_content(self, url):
-        response = requests.get(url)
-        response.raise_for_status()  # Levanta um erro se a solicitação falhar
-        return response.content
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+            }
+            response = requests.get(url, headers=headers, verify=False)
+            response.raise_for_status()
+            return response.content
+        except requests.RequestException as e:
+            print(f"Erro ao acessar {url}: {e}")
+            raise
 
     def get_anexo_url(self, soup, link_text):
         try:

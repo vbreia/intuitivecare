@@ -5,6 +5,9 @@ import tabula
 import zipfile
 import time
 
+# Configurar para suprimir warnings do Java
+os.environ['JAVA_TOOL_OPTIONS'] = '-Djava.util.logging.config.file=logging.properties'
+
 class PDFTableExtractor:
     def __init__(self, pdf_path):
         self.pdf_path = pdf_path
